@@ -5,6 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Ajax 5- Fetch from PHP MySQL</title>
+  <style>
+    .user {
+      display: flex;
+      background: #f4f4f4;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    .user ul {
+      list-style: none;
+    }
+  </style>
 </head>
 <body>
   <button id="button">Get Users</button>
@@ -22,16 +34,16 @@
       xhr.onload = function(){
         if(this.status == 200){
           var users = JSON.parse(this.responseText);
-          
           var output = '';
-          
-          for(var i in users){
-            output += '<ul>' +
-              '<li>ID: '+users[i].id+'</li>' +
-              '<li>Name: '+users[i].name+'</li>' +
-              '</ul>';
-          }
-
+          users.forEach(user => {
+            output +=
+              `<div class="user">
+                  <ul> 
+                    <li>ID: ${user.id}  </li> 
+                    <li>Login: ${user.name} </li>
+                  </ul> 
+                </div>`;
+          });
           document.getElementById('users').innerHTML = output;
         }
       }

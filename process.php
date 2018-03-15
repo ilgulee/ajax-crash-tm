@@ -1,7 +1,7 @@
 <?php
 
 //Connect to a database
-$conn = mysqli_connect('localhost', 'root', '', 'ajaxtest');
+$conn = mysqli_connect('localhost', 'root', '123456', 'test');
 
 echo 'Processing...';
 
@@ -23,3 +23,6 @@ if(isset($_POST['name'])){
 if(isset($_GET['name'])){
   echo 'GET: Your name is '. $_GET['name'];
 }
+
+
+?>
